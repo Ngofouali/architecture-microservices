@@ -30,7 +30,7 @@ Le micro-service "customer-service" permettra de gérer les clients.
 <br/>
 <li>DTO - CustomerDTO.java</li>
 <br/>
-<img src="captures/customerDTO.png">
+<img src="captures/CustomerDTO.png">
 <br/>
 <br/>
 <li>Repository - CustomerRepository.java</li>
