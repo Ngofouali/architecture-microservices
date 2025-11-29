@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: customer-service
+
+  # Configuration pour la connexion au config server
+  #
+
+  # Configuration de la base de donn?es H2
+  datasource:
+    url: jdbc:h2:mem:customerdb
+
+  h2:
+    console:
+      enabled: true
+
+  # Configuration JPA
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+## Configuration Eureka Client
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#    register-with-eureka: false
