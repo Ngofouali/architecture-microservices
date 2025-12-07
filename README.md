@@ -1,7 +1,7 @@
 <h2>Architecture Micro-services</h2>
 
 <h3>Objectif</h3>
-L'objectif de cette activité est de créer una pplication basée sur une architecture micro-service permettant de gérer les factures contenat des produits et appartenat à un client.
+L'objectif de cette activité est de créer une application basée sur une architecture micro-service permettant de gérer les factures contenant des produits et appartenant à un client.
 <br/>
 <h3> L'architecture</h3>
 <img src="captures/architecture.png">
@@ -74,10 +74,13 @@ Le micro-service "customer-service" permettra de gérer les clients.
 <br/>
 <img src="captures/testPOSTCustomer.png">
 <br/>
+<br/>
 <img src="captures/resultPOSTCustomer.png">
 </ul>
 <li>Création du micro-service "inventory-service "</li>
+<br/>
 Le micro-service "inventory-service" permettra de gérer les produits et leur inventaire.
+<br/>
 <ul>
 <li>Structure du micro-service : "inventory-service"</li>
 <br/>
@@ -153,4 +156,47 @@ Le micro-service "inventory-service" permettra de gérer les produits et leur in
 <br/>
 <br/>
 <li>Création de la Gateway "gateway-service "</li>
+<br/>
+LA Gateway est le point d'entrée unique qui gère toutes les requêtes entrantes pour router les demandes vers les micro-services appropriés, tout en centralisant des fonctionnalités transversales comme la sécurité, l'authentification, la limitation de débit, le routage intelligent, et l'équilibrage de charge, simplifiant ainsi la complexité pour les clients et les services backend.
+<br/>
+<ul>
+<li>Structure du micro-service : "gateway-service</li>
+<img src="captures/gatewayStructure.png">
+<br/>
+<br/>
+<li>Dépendances du micro-service : "gateway-service"</li>
+<br/>
+<img src="captures/pomXMLGateway-service1.png">
+<br/>
+<img src="captures/pomXMLGateway-service2.png">
+<br/>
+<br/>
+<li>Main - GatewayServiceApplication.java</li>
+<br/>
+<img src="captures/GatewayServiceApplication.png">
+</ul>
+<br/>
+<li> Configuration statique du système de routage</li>
+<br/>
+<ul>
+<li>application.properties</li>
+<br/>
+<img src="captures/applicationPropertiesGateway.png">
+<br/>
+<li>application.yml</li>
+<br/>
+<img src="captures/applicationYmlGateway.png">
+<br/>
+<li>Test de la Gateway</li>
+<br/>
+<img src="captures/testGateway1.png">
+<br/>
+<img src="captures/testGateway2.png">
+<br/>
+<br/>
+<img src="captures/testGateway3.png">
+<br/>
+<img src="captures/testGateway4.png">
+</ul>
+<li>Création de l'annuaire Eureka Discrovery Service</li>
 </ol>
