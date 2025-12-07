@@ -194,9 +194,9 @@ LA Gateway est le point d'entrée unique qui gère toutes les requêtes entrante
 <img src="captures/testGateway2.png">
 <br/>
 <br/>
-<img src="captures/testGateway3.png">
+<img src="captures/testGatway3.png">
 <br/>
-<img src="captures/testGateway4.png">
+<img src="captures/testGatway4.png">
 </ul>
 <li>Création de l'annuaire Eureka Discrovery Service</li>
 </ol>
