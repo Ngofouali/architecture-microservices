@@ -150,5 +150,7 @@ Le micro-service "inventory-service" permettra de gérer les produits et leur in
 <br/>
 <img src="captures/POSTInventResult.png">
 </ul>
+<br/>
+<br/>
 <li>Création de la Gateway "gateway-service "</li>
 </ol>
