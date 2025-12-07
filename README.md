@@ -69,5 +69,11 @@ Le micro-service "customer-service" permettra de gérer les clients.
 <br/>
 <br/>
 <img src="captures/swagger-customers.png">
+<br/>
+<img src="captures/testCustomerId.png">
+<br/>
+<img src="captures/testPOSTCustomer.png">
+<br/>
+<img src="captures/resultPOSTCustomer.png">
 </ul>
 </ol>

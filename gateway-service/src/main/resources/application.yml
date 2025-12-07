@@ -1,135 +1,14 @@
-server:
-  port: 8080
-
-spring :
-  application:
-    name: gateway-service
-
-  # Configuration pour se connecter au Config Server
-#  config:
-#    import: optional:configserver:http://localhost:8888
-
-  # Configuration Cloud Gateway
+spring:
   cloud:
     gateway:
-#      discovery:
-#        locator:
-#          enabled: true
-#          lower-case-service-id: true
-
-      # ========================================
-      # CONFIGURATION GLOBALE DES ROUTES
-#      # ========================================
-#      # Ces filtres s'appliquent à TOUTES les routes
-#      default-filters:
-#        # Retry automatique en cas d'échec
-#        - name: Retry
-#          args:
-#            retries: 3
-#            methods: GET,POST
-#            backoff:
-#              firstBackoff: 50ms
-#              maxBackoff: 500ms
-#              factor: 2
-#              basedOnPreviousValue: false
-
-      # Ajouter un header de corrélation pour le tracing
-      - AddRequestHeader=X-Gateway-Request, true
-
-#    # Configuration Eureka Client
-#    eureka:
-#      client:
-#        service-url:
-#          defaultZone: http://localhost:8761/eureka/
-#        register-with-eureka: true
-#        fetch-registry: true
-#      instance:
-#        prefer-ip-address: true
-#        instance-id: ${spring.application.name}:${server.port}
-
-# ========================================
-# CONFIGURATION RESILIENCE4J (Circuit Breaker)
-# ========================================
-#resilience4j:
-#  circuitbreaker:
-#    configs:
-#      # Configuration par défaut pour tous les circuit breakers
-#      default:
-#        # Taille de la fenêtre glissante (nombre de requêtes à considérer)
-#        sliding-window-size: 10
-#        # Seuil d'erreur pour ouvrir le circuit (50% d'erreurs)
-#        failure-rate-threshold: 50
-#        # Temps d'attente avant de tester à nouveau (circuit semi-ouvert)
-#        wait-duration-in-open-state: 10s
-#        # Nombre de requêtes en semi-ouvert avant de décider
-#        permitted-number-of-calls-in-half-open-state: 3
-#        # Transition automatique vers semi-ouvert
-#        automatic-transition-from-open-to-half-open-enabled: true
-#        # Durée minimale avant de calculer le taux d'erreur
-#        minimum-number-of-calls: 5
-#
-#    instances:
-#      # Circuit Breaker pour Customer Service
-#      customerCircuitBreaker:
-#        base-config: default
-#        sliding-window-size: 10
-#        failure-rate-threshold: 50
-#
-#      # Circuit Breaker pour Inventory Service
-#      inventoryCircuitBreaker:
-#        base-config: default
-#        sliding-window-size: 10
-#        failure-rate-threshold: 50
-#
-#      # Circuit Breaker pour Billing Service
-#      billingCircuitBreaker:
-#        base-config: default
-#        sliding-window-size: 10
-#        failure-rate-threshold: 50
-#
-#  # ========================================
-#  # CONFIGURATION TIMELIMITER (Timeout)
-#  # ========================================
-#  timelimiter:
-#    configs:
-#      default:
-#        # Timeout pour les requêtes (5 secondes)
-#        timeout-duration: 5s
-
-# ========================================
-# MONITORING AVEC ACTUATOR
-# ========================================
-management:
-  endpoints:
-    web:
-      exposure:
-        # Expose tous les endpoints Actuator
-        include: "*"
-  endpoint:
-    health:
-      show-details: always
-    gateway:
-      # Active l'endpoint /actuator/gateway/routes
-      # pour voir toutes les routes configurées
-      enabled: true
-
-# ========================================
-# LOGS
-# ========================================
-#logging:
-#  level:
-#    # Logs de la Gateway en DEBUG
-#    org.springframework.cloud.gateway: DEBUG
-#    # Logs du routage
-#    org.springframework.cloud.gateway.route: DEBUG
-#    # Logs des filtres
-#    org.springframework.cloud.gateway.filter: DEBUG
-#    # Logs Netty (serveur web sous-jacent)
-#    reactor.netty: INFO
-#    # Logs de notre application
-#    com.example.gateway: DEBUG
-#  pattern:
-#    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
-
-
-
+      server:
+        webflux:
+          routes:
+            - id: r1
+              uri: http://localhost:8081
+              predicates:
+                - Path=/customers/**
+            - id: r2
+              uri: http://localhost:8082
+              predicates:
+                - Path=/inventory/**
