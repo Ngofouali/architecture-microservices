@@ -5,10 +5,14 @@ spring:
   application:
     name: customer-service
 
+  cloud:
+    discovery:
+      enabled: true
+
   # Configuration pour la connexion au config server
   #
 
-  # Configuration de la base de donn?es H2
+  # Configuration de la base de données H2
   datasource:
     url: jdbc:h2:mem:customerdb
 

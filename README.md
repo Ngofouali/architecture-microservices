@@ -198,5 +198,39 @@ LA Gateway est le point d'entrée unique qui gère toutes les requêtes entrante
 <br/>
 <img src="captures/testGatway4.png">
 </ul>
+<br/>
 <li>Création de l'annuaire Eureka Discrovery Service</li>
+<br/>
+Ce service agit comme un registre où tous les microservices s'enregistrent.
+C'est grâce à lui que les services peuvent se découvrir mutuellement.<br/>
+Exemple : Le service Customer peut trouver le service Inventory en demandant à Eureka "Où est le service Inventory ?"
+<br/>
+<br/>
+<ul>
+<li>Structure du micro-service : "discovery-service"</li>
+<br/>
+<img src="captures/structure-discovery-service.png">
+<br/>
+<br/>
+<li>Dépendances du micro-service : "discovery-service"</li>
+<br/>
+<img src="captures/discoveryServiceXML.png">
+<br/>
+<br/>
+<li>Main - DiscoveryServiceApplication.java</li>
+<br/>
+<img src="captures/DiscoveryServiceApplication.png">
+<br/>
+<br/>
+<li>application.properties</li>
+<br/>
+<img src="captures/applicationproperties-Discovery.png">
+<br/>
+<br/>
+<li>Test de l'annuaire</li>
+<br/>
+<img src="captures/lb02.png">
+<img src="captures/lb01.png">
+
+</ul>
 </ol>
